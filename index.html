@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const message = ref('Hello vuejs1!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+<!-- Nếu chưa có thì gõ lệnh: 
+ npm i -g vite // Cài toàn cục
+ npm i vite // cho thư mục hiện tại
+ lệnh cài vuejs: npm create vue@latest tenduan
+ -->
+</body>
+</html>
