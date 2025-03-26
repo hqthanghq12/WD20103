@@ -40,6 +40,41 @@ const arrObjFood = reactive([
         price: 25000
     }
 ]);
+// mô phỏng lại dữ liệu hiện có trong giỏ hàng
+const cart = reactive([
+    {
+        id: 1,
+        name: 'Bánh mì',
+        price: 15000,
+        quantity: 4
+    },
+    {
+        id: 2,
+        name: 'Bánh mì 2',
+        price: 10000,
+        quantity: 1
+    },
+    {
+        id: 3,
+        name: 'Bánh mì 3',
+        price: 12000,
+        quantity: 1
+    }
+]);
+// Hàm giả số lượng
+function desQuantity(index){
+    if(cart[index].quantity > 1){
+        cart[index].quantity--;
+    }
+}
+// Hàm tăng số lượng
+function addQuantity(index){
+    cart[index].quantity++;
+}
+// Thành tiền
+function totalPrice(){
+
+}
 </script>
 <template>
 <!-- <h1>Xin chào</h1> -->
@@ -60,21 +95,43 @@ const arrObjFood = reactive([
 <!-- v-for -->
 <!-- mảng -->
 <!-- lấy giá trị -->
-<ul v-for="food in arrFood" :key="food">   
+<!-- <ul v-for="food in arrFood" :key="food">   
     <li>{{ food }}</li>
-</ul>
+</ul> -->
 <!-- lấy cả giá trị và chỉ số -->
-<ul v-for="food, index in arrFood" :key="food">   
+<!-- <ul v-for="food, index in arrFood" :key="food">   
     <li>{{ index }} - {{ food }}</li>
-</ul>
+</ul> -->
 <!-- đối tượng -->
-<ul v-for="food, index in objFood" :key="food">   
+<!-- <ul v-for="food, index in objFood" :key="food">   
     <li>{{ index }} - {{ food }}</li>
-</ul>
+</ul> -->
 <!-- mảng đối tượng -->
-<ul v-for="foods in arrObjFood " :key="foods">
+<!-- <ul v-for="foods in arrObjFood " :key="foods">
     <li>{{ foods.name }} - {{ foods.price }}</li>
-</ul>
+</ul> -->
+<!-- Hiển sp đang có -->
+<h1>Giỏ hàng</h1>
+<table class="table"> 
+    <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+    </tr>
+    <tr v-for="value, index in cart" :key="value">
+        <td>{{ value.id }}</td>
+        <td>{{ value.name }}</td>
+        <td>{{ value.price }}</td>
+        <td>
+        <button type="submit" class="btn" @click="desQuantity(index)">-</button>
+            {{ value.quantity }}
+        <button type="submit" class="btn" @click="addQuantity(index)">+</button>
+        </td>
+        <td>{{ value.quantity *  value.price}}</td>
+    </tr>
+</table>
 </template>
 <style scoped>
 </style>
