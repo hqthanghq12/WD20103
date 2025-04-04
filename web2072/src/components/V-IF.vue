@@ -71,9 +71,11 @@ function desQuantity(index){
 function addQuantity(index){
     cart[index].quantity++;
 }
-// Thành tiền
+// Tính tổng tiền của giỏ hàng
 function totalPrice(){
-
+    return cart.reduce((total, item) => {
+       return total + item.price * item.quantity
+}, 0).toFixed(2);
 }
 </script>
 <template>
@@ -88,10 +90,10 @@ function totalPrice(){
     <h1 v-else-if="diemSo >= 3">trung bình</h1>
     <h1 v-else>yếu</h1>
 </div> -->
-<div>
+<!-- <div>
 <h1 v-show="diemSo >= 5">Pass môn</h1>
 <h1 v-show="diemSo < 5">Trượt môn</h1>
-</div>
+</div> -->
 <!-- v-for -->
 <!-- mảng -->
 <!-- lấy giá trị -->
@@ -132,6 +134,11 @@ function totalPrice(){
         <td>{{ value.quantity *  value.price}}</td>
     </tr>
 </table>
+<div>
+<span>Tổng tiền: {{  totalPrice() }}</span>
+</div>
+<!-- tính t��ng tiền của gi�� hàng -->
+<!-- tính tổng tiền của giỏ hàng -->
 </template>
 <style scoped>
 </style>
