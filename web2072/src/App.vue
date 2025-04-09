@@ -3,14 +3,15 @@
 // import VIF from './components/V-IF.vue';
 // import EventForm from './components/Event_Form.vue';
 // Nhúng file con vào 
-// import { ref } from 'vue';
+import { ref } from 'vue';
 // import Button from './components/Button.vue';
 // Hàm nhận giá trị từ file con
 // const gTri = ref(''); // Chứa dữ liệu
 // const nhanDL = (data) =>{
 //     gTri.value = data; // Nhận dữ liệu từ file con
 // }
-import ChaButton from './components/ChaButton.vue';
+// import ChaButton from './components/ChaButton.vue';
+// import Lifecycle from './components/Lifecycle.vue';
 </script>
 <template>
 <!-- gọi ra -->
@@ -25,7 +26,15 @@ import ChaButton from './components/ChaButton.vue';
 <!-- <Button @ThongBaoTuCon="nhanDL"/> -->
 <!-- Hiện thị ra -->
 <!-- <p>Đây là giá trị nhận được từ file con: {{ gTri }}</p> -->
-<ChaButton/>
+<!-- <ChaButton/> -->
+<!-- <Lifecycle/> -->
+<h1> Hello</h1>
+<span>Dường dẫn là {{ $route.fullPath }}</span>
+<nav>
+<RouterLink to="/">Trang chủ</RouterLink>
+<RouterLink to="/v-if">Giới thiệu</RouterLink>
+</nav>
+<RouterView/>
 </template>
 <style scoped>
 </style>
